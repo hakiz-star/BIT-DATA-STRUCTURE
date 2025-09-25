@@ -1,0 +1,45 @@
+# Stack and Queue Challenges
+
+## Stack Challenge: Reverse string "URDATA" using stack
+
+**Algorithm:**
+1. Create an empty stack.
+2. Push each character of the string onto the stack.
+3. Pop each character from the stack and append to a new string.
+4. The new string is the reversed version.
+
+**Python Code:**
+
+stack = []
+for char in "URDATA":
+    stack.append(char)
+reversed_str = ""
+while stack:
+    reversed_str += stack.pop()
+print(reversed_str)  # Output: ATADRU
+
+---
+
+## Queue Challenge: Build queue for Kigali Stadium entry. What fails if stack is used?
+
+**Algorithm for Queue:**
+1. Create an empty queue.
+2. As each person arrives, add them to the queue.
+3. Serve people by removing from the front of the queue (FIFO).
+
+**If a stack is used:**
+- The last person to arrive would be served first (LIFO), which is unfair and not suitable for event entry.
+- People who arrived first would have to wait until everyone else is served.
+
+**Python Code for Queue:**
+
+from collections import deque
+queue = deque()
+for person in ["Person1", "Person2", "Person3"]:
+    queue.append(person)
+while queue:
+    print(f"Served: {queue.popleft()}")
+# Output:
+# Served: Person1
+# Served: Person2
+# Served: Person3
